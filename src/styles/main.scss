@@ -37,6 +37,16 @@
   z-index: 2 !important;
 }
 
+.section.contact {
+  @include min-width(mobile) {
+    height: 100vh;
+  }
+}
+.section.home {
+  @include min-width(mobile) {
+    height: 100vh;
+  }
+}
 #custom-cursor {
   transition: transform 300ms ease;
   width: 20px;

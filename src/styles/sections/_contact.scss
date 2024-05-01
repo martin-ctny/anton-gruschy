@@ -4,7 +4,12 @@
   align-items: center;
   flex-direction: column;
   h2 {
-    font-size: ptr(160, desktop);
+    @include min-width(mobile) {
+      font-size: ptr(70, mobile);
+    }
+    @include min-width(tablet) {
+      font-size: ptr(160, desktop);
+    }
     font-weight: 800;
     color: white;
   }
@@ -20,7 +25,13 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: ptr(20, desktop);
+      @include min-width(mobile) {
+        font-size: ptr(15, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(20, desktop);
+      }
+
       text-decoration: none;
       font-weight: 100;
       color: #171717;

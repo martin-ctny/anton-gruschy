@@ -651,9 +651,18 @@ body {
   flex-direction: column;
 }
 .contact h2 {
-  font-size: calc(0.0833333333 * 1 * 100vw);
   font-weight: 800;
   color: white;
+}
+@media (min-width: 0px) {
+  .contact h2 {
+    font-size: calc(0.1781170483 * 1 * 100vw);
+  }
+}
+@media (min-width: 481px) {
+  .contact h2 {
+    font-size: calc(0.0833333333 * 1 * 100vw);
+  }
 }
 .contact .links {
   display: flex;
@@ -667,10 +676,21 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: calc(0.0104166667 * 1 * 100vw);
   text-decoration: none;
   font-weight: 100;
   color: #171717;
+}
+@media (min-width: 0px) {
+  .contact .links a,
+  .contact .links p {
+    font-size: calc(0.0381679389 * 1 * 100vw);
+  }
+}
+@media (min-width: 481px) {
+  .contact .links a,
+  .contact .links p {
+    font-size: calc(0.0104166667 * 1 * 100vw);
+  }
 }
 .contact .links .linkdin {
   min-width: 40%;
@@ -1314,6 +1334,18 @@ body {
 }
 @media (min-width: 481px) {
   .section {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 0px) {
+  .section.contact {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 0px) {
+  .section.home {
     height: 100vh;
   }
 }

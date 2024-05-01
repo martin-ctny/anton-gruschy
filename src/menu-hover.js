@@ -71,28 +71,31 @@ addEventListener("DOMContentLoaded", () => {
   });
 
   const nextWork = document.querySelector(".next-work");
-  const leftBottomContent = nextWork.querySelector(".left");
+  if (nextWork) {
+    const leftBottomContent = nextWork.querySelector(".left");
 
-  const rightBottomContent = nextWork.querySelector(".right");
+    const rightBottomContent = nextWork.querySelector(".right");
 
-  leftBottomContent.addEventListener("mouseenter", () => {
-    customCursor.style.transform = "scale(2)";
-  });
-  leftBottomContent.addEventListener("mouseleave", () => {
-    customCursor.style.transform = "scale(1)";
-  });
-  rightBottomContent.addEventListener("mouseenter", () => {
-    customCursor.style.transform = "scale(2)";
-  });
-  rightBottomContent.addEventListener("mouseleave", () => {
-    customCursor.style.transform = "scale(1)";
-  });
+    leftBottomContent.addEventListener("mouseenter", () => {
+      customCursor.style.transform = "scale(2)";
+    });
+    leftBottomContent.addEventListener("mouseleave", () => {
+      customCursor.style.transform = "scale(1)";
+    });
+    rightBottomContent.addEventListener("mouseenter", () => {
+      customCursor.style.transform = "scale(2)";
+    });
+    rightBottomContent.addEventListener("mouseleave", () => {
+      customCursor.style.transform = "scale(1)";
+    });
+  }
 
   const contactLinks = document.querySelectorAll(".contact-item");
   contactLinks.forEach((el) => {
     let shuffleCount = 0;
     let originalText = el.textContent;
     el.addEventListener("mouseenter", (e) => {
+      console.log("mouseenter");
       customCursor.style.transform = "scale(2)";
       if (shuffleCount < 3) {
         shuffleAnimation(el, originalText, shuffleCount);
