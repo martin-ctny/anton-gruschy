@@ -1,0 +1,248 @@
+.projects {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 ptr(50, desktop);
+  @include min-width(mobile) {
+    height: auto !important;
+  }
+  @include min-width(tablet) {
+    height: 100vh !important;
+  }
+
+  .hr {
+    position: absolute;
+    bottom: 0;
+    @include min-width(mobile) {
+      border: 1px solid rgba($color: #e0e0e0, $alpha: 1);
+    }
+    @include min-width(tablet) {
+      border: 1px solid rgba($color: #e0e0e0, $alpha: 0.5);
+    }
+    left: 0;
+    width: 0%;
+  }
+  .hr.visible {
+    width: 100%;
+    transition: width 2s, height 0.33s ease-in-out;
+    @include min-width(mobile) {
+      background-color: rgba($color: #e0e0e0, $alpha: 1);
+    }
+    @include min-width(tablet) {
+      background-color: rgba($color: #e0e0e0, $alpha: 0.5);
+    }
+    height: 0px;
+  }
+  .hrTop {
+    position: initial !important;
+    bottom: 0;
+    @include min-width(mobile) {
+      border: 1px solid rgba($color: #e0e0e0, $alpha: 1);
+    }
+    @include min-width(tablet) {
+      border: 1px solid rgba($color: #e0e0e0, $alpha: 0.5);
+    }
+    left: 0;
+    width: 0%;
+  }
+
+  .title {
+    @include min-width(mobile) {
+      margin: ptr(50, mobile) 0;
+      font-size: ptr(20, mobile);
+    }
+    @include min-width(tablet) {
+      margin: ptr(50, tablet) 0;
+      font-size: ptr(50, tablet);
+    }
+    @include min-width(tablet) {
+      margin: ptr(50, desktop) 0;
+      font-size: ptr(20, desktop);
+    }
+    font-weight: 100;
+  }
+  .project {
+    text-decoration: none;
+    @include min-width(mobile) {
+      color: rgba($color: #e0e0e0, $alpha: 1);
+    }
+    @include min-width(tablet) {
+      color: rgba($color: #e0e0e0, $alpha: 0.5);
+    }
+    display: flex;
+    flex-direction: column;
+    @include min-width(mobile) {
+      height: auto !important;
+    }
+    @include min-width(tablet) {
+      height: 8vh !important;
+    }
+    overflow: hidden;
+    position: relative;
+    .content {
+      position: relative;
+      width: 100%;
+      @include min-width(mobile) {
+        padding: ptr(10, mobile) 0;
+        height: 15vh;
+      }
+      @include min-width(tablet) {
+        padding: 0;
+        height: 8vh;
+      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 2;
+      .number {
+        font-weight: 100;
+        @include min-width(mobile) {
+          font-size: ptr(15, mobile);
+        }
+        @include min-width(tablet) {
+          font-size: ptr(20, desktop);
+        }
+      }
+      .date {
+        font-weight: 100;
+        @include min-width(mobile) {
+          font-size: ptr(15, mobile);
+        }
+        @include min-width(tablet) {
+          font-size: ptr(20, desktop);
+        }
+      }
+      .name {
+        font-weight: 500;
+        @include min-width(mobile) {
+          min-width: ptr(17, mobile);
+          font-size: ptr(17, mobile);
+        }
+        @include min-width(tablet) {
+          min-width: ptr(200, desktop);
+          font-size: ptr(25, desktop);
+        }
+      }
+      .cards {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+
+        @include min-width(mobile) {
+          justify-content: space-around;
+          margin: auto;
+          width: 100%;
+          gap: ptr(10, mobile);
+        }
+        @include min-width(tablet) {
+          justify-content: flex-end;
+          margin: 0;
+          width: auto;
+          gap: ptr(20, desktop);
+          min-width: ptr(500, desktop);
+        }
+        p {
+          font-weight: 100;
+          @include min-width(mobile) {
+            font-size: ptr(15, mobile);
+            padding: ptr(10, mobile) ptr(30, mobile);
+          }
+          @include min-width(tablet) {
+            font-size: ptr(20, desktop);
+            padding: 0.5rem 1rem;
+          }
+          border: 1px solid #e0e0e0;
+          border-radius: 20px;
+        }
+      }
+    }
+    .hover-content {
+      position: absolute;
+      width: 100%;
+      height: 8vh;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      transform: translateY(0%);
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+      color: #e0e0e0;
+
+      .number {
+        font-weight: 100;
+        font-size: ptr(20, desktop);
+      }
+      .date {
+        font-weight: 100;
+        font-size: ptr(20, desktop);
+      }
+      .name {
+        font-weight: 500;
+        @include min-width(mobile) {
+          min-width: ptr(17, mobile);
+          font-size: ptr(17, mobile);
+        }
+        @include min-width(tablet) {
+          min-width: ptr(200, desktop);
+          font-size: ptr(25, desktop);
+        }
+      }
+      .cards {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        @include min-width(mobile) {
+          justify-content: space-around;
+          margin: auto;
+          width: 100%;
+          gap: ptr(10, mobile);
+        }
+        @include min-width(tablet) {
+          justify-content: flex-end;
+          margin: 0;
+          width: auto;
+          gap: ptr(20, desktop);
+          min-width: ptr(500, desktop);
+        }
+        p {
+          font-weight: 100;
+          font-size: ptr(20, desktop);
+          border: 1px solid #e0e0e0;
+          border-radius: 20px;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+
+  // .hover-content {
+  //   position: absolute;
+  //   top: 100%;
+  //   left: 0;
+  //   width: 100%;
+  //   transform: translateY(-100%);
+  //   transition: transform 0.3s ease;
+  // }
+
+  .project:hover .hover-content {
+    @include min-width(tablet) {
+      transform: translateY(-100%);
+    }
+  }
+
+  /* Style restant */
+  .project .content {
+    transition: transform 0.3s ease;
+  }
+
+  .project:hover .content {
+    @include min-width(tablet) {
+      transform: translateY(-100%);
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.header {
+  z-index: 100000;
+  position: fixed;
+  left: 50%;
+  top: 3%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5%;
+  height: 7vh;
+  @include min-width(mobile) {
+    display: none;
+    width: 90%;
+  }
+  @include min-width(tablet) {
+    display: flex;
+    width: 50%;
+  }
+  background-color: rgba(#d4d4d4, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 50px;
+  font-weight: 100;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  li {
+    list-style: none;
+    display: inline;
+    padding: 0 1rem;
+    color: #e0e0e0;
+    @include min-width(mobile) {
+      font-size: ptr(10, mobile);
+    }
+    @include min-width(tablet) {
+      font-size: ptr(20, desktop);
+    }
+  }
+  img {
+    height: 35px;
+  }
+  .right-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 10vh;
+    width: 100%;
+  }
+}
+
+.home {
+  .content {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    flex-direction: column;
+    @include min-width(mobile) {
+      margin-bottom: ptr(30, mobile);
+      gap: ptr(30, mobile);
+    }
+    @include min-width(tablet) {
+      margin-bottom: ptr(0, tablet);
+      gap: ptr(30, tablet);
+    }
+    @include min-width(desktop) {
+      gap: ptr(30, desktop);
+    }
+    padding: ptr(20, mobile);
+
+    width: 100%;
+    .text-home {
+      text-align: right;
+      text-wrap: pretty;
+      @include min-width(mobile) {
+        font-size: ptr(25, mobile);
+        width: 90%;
+      }
+      @include min-width(tablet) {
+        font-size: ptr(50, tablet);
+        width: 80%;
+      }
+      @include min-width(desktop) {
+        font-size: ptr(50, desktop);
+        width: 35%;
+      }
+      color: white;
+      font-weight: 500;
+    }
+    .scroll {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      p {
+        color: white;
+        font-weight: 100;
+      }
+      svg {
+        @include min-width(mobile) {
+          height: ptr(50, mobile);
+        }
+        @include min-width(tablet) {
+          height: ptr(40, desktop);
+        }
+        @include min-width(desktop) {
+          height: ptr(50, desktop);
+        }
+      }
+      .mask {
+        animation: scroll 2s infinite;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

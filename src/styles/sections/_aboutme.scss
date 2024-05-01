@@ -1,0 +1,132 @@
+.aboutme {
+  padding: 0 ptr(25, mobile);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include min-width(mobile) {
+    height: auto !important;
+    flex-direction: column;
+    gap: ptr(50, mobile);
+  }
+  @include min-width(tablet) {
+    height: 100vh !important;
+    flex-direction: row;
+    gap: auto;
+  }
+  .left-content {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    @include min-width(mobile) {
+      height: auto;
+      width: 100%;
+      gap: ptr(20, mobile);
+    }
+    @include min-width(tablet) {
+      height: 70vh;
+      gap: ptr(50, desktop);
+      width: 45%;
+    }
+    h2 {
+      @include min-width(mobile) {
+        font-size: ptr(30, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(40, desktop);
+      }
+      font-weight: 500;
+    }
+
+    .bar {
+      transition: all 1s ease-in-out;
+      z-index: 10;
+      width: 0vw;
+      height: 1px;
+      background-color: white;
+      margin: 1rem 0;
+      position: absolute;
+    }
+    .anime {
+      position: relative;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      .point {
+        position: absolute;
+        transition: all 1s ease-in-out;
+        left: 0vw;
+        z-index: 131;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        border-radius: 50%;
+        animation: bounce 1s infinite ease-in-out;
+
+        @keyframes bounce {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.2);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      }
+      .visible-point {
+        @include min-width(mobile) {
+          left: 80vw;
+        }
+        @include min-width(tablet) {
+          left: 55vw;
+        }
+      }
+    }
+
+    .visible {
+      @include min-width(mobile) {
+        width: 80vw;
+      }
+      @include min-width(tablet) {
+        width: 55vw;
+      }
+    }
+
+    .texte {
+      @include min-width(mobile) {
+        font-size: ptr(12, mobile);
+        gap: ptr(20, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(20, desktop);
+        gap: ptr(20, desktop);
+      }
+      font-weight: 100;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .right-content {
+    @include min-width(mobile) {
+      width: 100%;
+    }
+    @include min-width(tablet) {
+      width: 45%;
+    }
+    img {
+      @include min-width(mobile) {
+        height: auto;
+        border-radius: 50px;
+        width: 100%;
+      }
+      @include min-width(tablet) {
+        width: auto;
+        height: 70vh;
+      }
+    }
+  }
+}

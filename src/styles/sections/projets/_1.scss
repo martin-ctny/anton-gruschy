@@ -1,0 +1,491 @@
+.arrow {
+  background-color: rgba(#d4d4d4, 0.1);
+  backdrop-filter: blur(18px);
+  border: 1px solid white;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+
+  &:hover {
+    background-color: rgba(#d4d4d4, 0.3);
+    svg {
+      animation: arrow 0.7s ease-in-out;
+    }
+  }
+  @keyframes arrow {
+    0% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(-5px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(5px);
+      opacity: 0;
+    }
+    100% {
+      transform: translatX(0);
+      opacity: 1;
+    }
+  }
+}
+.heroe-work {
+  @include min-width(mobile) {
+    padding: 0 ptr(25, mobile);
+  }
+  @include min-width(tablet) {
+    height: 100vh;
+    padding: 1.3%;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  .img {
+    width: auto;
+    height: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+  }
+  .bottom-content {
+    display: flex;
+    @include min-width(mobile) {
+      flex-direction: column;
+      gap: ptr(20, mobile);
+      padding-top: ptr(20, mobile);
+    }
+    @include min-width(tablet) {
+      flex-direction: row;
+      gap: ptr(20, desktop);
+      padding-top: ptr(20, desktop);
+    }
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+    .left {
+      @include min-width(mobile) {
+        width: 100%;
+        gap: ptr(30, mobile);
+      }
+      @include min-width(tablet) {
+        width: 45%;
+        gap: ptr(30, desktop);
+      }
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        font-weight: 500;
+        @include min-width(mobile) {
+          font-size: ptr(30, mobile);
+        }
+        @include min-width(tablet) {
+          font-size: ptr(50, tablet);
+        }
+        @include min-width(desktop) {
+          font-size: ptr(50, desktop);
+        }
+      }
+
+      .array {
+        .ligne {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          @include min-width(mobile) {
+            padding: ptr(20, mobile);
+            min-height: ptr(40, mobile);
+          }
+          @include min-width(tablet) {
+            padding: ptr(20, desktop);
+            min-height: ptr(40, desktop);
+          }
+          p {
+            text-transform: uppercase;
+            font-weight: 100;
+            @include min-width(mobile) {
+              font-size: ptr(15, mobile);
+            }
+            @include min-width(tablet) {
+              font-size: ptr(20, tablet);
+            }
+            @include min-width(desktop) {
+              font-size: ptr(18, desktop);
+            }
+          }
+        }
+        .cards {
+          display: flex;
+          align-items: center;
+          gap: ptr(20, desktop);
+          p {
+            font-weight: 100;
+            font-size: ptr(18, desktop);
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+          }
+        }
+        .hr {
+          position: absolute;
+          bottom: 0;
+          border: 1px solid white;
+          left: 0;
+          width: 0%;
+        }
+        .hr.visible {
+          width: 100%;
+          transition: width 1s, height 0.33s ease-in-out;
+          background-color: white;
+          height: 0px;
+        }
+        .hrTop {
+          position: initial !important;
+          bottom: 0;
+          border: 1px solid white;
+          left: 0;
+          width: 0%;
+        }
+      }
+    }
+    .right {
+      @include min-width(mobile) {
+        width: 100%;
+        gap: ptr(40, mobile);
+      }
+      @include min-width(tablet) {
+        width: 45%;
+        gap: ptr(40, desktop);
+      }
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .texte {
+        display: flex;
+        flex-direction: column;
+        @include min-width(mobile) {
+          gap: ptr(20, mobile);
+        }
+        @include min-width(tablet) {
+          gap: ptr(23, desktop);
+        }
+
+        height: auto;
+      }
+      h3 {
+        font-weight: 100;
+        text-transform: uppercase;
+        @include min-width(mobile) {
+          font-size: ptr(20, mobile);
+        }
+        @include min-width(tablet) {
+          font-size: ptr(30, tablet);
+        }
+        @include min-width(desktop) {
+          font-size: ptr(20, desktop);
+        }
+      }
+      p {
+        font-weight: 100;
+        @include min-width(mobile) {
+          font-size: ptr(15, mobile);
+        }
+        @include min-width(tablet) {
+          font-size: ptr(20, tablet);
+        }
+        @include min-width(desktop) {
+          font-size: ptr(20, desktop);
+        }
+      }
+    }
+  }
+}
+
+.text {
+  padding: 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .text-title {
+    font-weight: 100;
+    text-transform: uppercase;
+    @include min-width(mobile) {
+      font-size: ptr(20, mobile);
+    }
+    @include min-width(tablet) {
+      font-size: ptr(30, tablet);
+    }
+    @include min-width(desktop) {
+      font-size: ptr(20, desktop);
+    }
+  }
+  .text-center {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include min-width(mobile) {
+      padding: ptr(100, mobile) 0;
+      height: auto;
+      gap: ptr(10, mobile);
+    }
+    @include min-width(tablet) {
+      padding: 0;
+      // height: 100%;
+      gap: ptr(40, desktop);
+    }
+    width: 85%;
+    p {
+      text-align: center;
+      font-weight: 500;
+      @include min-width(mobile) {
+        font-size: ptr(20, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(30, tablet);
+      }
+      @include min-width(desktop) {
+        font-size: ptr(42, desktop);
+      }
+    }
+  }
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  iframe {
+    aspect-ratio: 16/9;
+    border-radius: 30px;
+    object-fit: cover;
+    max-height: 90%;
+    width: 95%;
+  }
+}
+
+.duo-img {
+  display: flex;
+  @include min-width(mobile) {
+    padding: ptr(20, mobile) 0;
+    flex-direction: column;
+    gap: ptr(20, mobile);
+  }
+  @include min-width(tablet) {
+    padding: 0;
+    flex-direction: row;
+    gap: ptr(20, desktop);
+  }
+  justify-content: space-evenly;
+  align-items: center;
+
+  img,
+  video {
+    @include min-width(mobile) {
+      aspect-ratio: 16/9;
+      border-radius: 30px;
+      object-fit: cover;
+      max-height: auto;
+      width: 95%;
+    }
+    @include min-width(tablet) {
+      width: 45%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+  }
+  video {
+    @include min-width(mobile) {
+      aspect-ratio: 3/5;
+      border-radius: 30px;
+      object-fit: cover;
+      max-height: auto;
+      width: 95%;
+    }
+    @include min-width(tablet) {
+      width: 25%;
+      aspect-ratio: 2/3;
+    }
+  }
+}
+.deuxTier {
+  img {
+    @include min-width(mobile) {
+      aspect-ratio: 16/9;
+      border-radius: 30px;
+      object-fit: cover;
+      max-height: auto;
+      width: 95%;
+    }
+    @include min-width(tablet) {
+      height: 80%;
+      object-fit: cover;
+      border-radius: 30px;
+      &:first-child {
+        width: 60%;
+      }
+      &:last-child {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  img {
+    aspect-ratio: 16/9;
+    border-radius: 30px;
+    object-fit: cover;
+    max-height: 90%;
+    width: 95%;
+  }
+}
+
+.end {
+  height: 100vh !important;
+}
+.next-work {
+  @include min-width(mobile) {
+    padding: ptr(40, mobile) 5%;
+  }
+  @include min-width(tablet) {
+    padding: 2.3% 5%;
+  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-transform: uppercase;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    @include min-width(mobile) {
+      gap: ptr(20, mobile);
+    }
+    @include min-width(tablet) {
+      gap: ptr(50, desktop);
+    }
+    h2 {
+      font-weight: 500;
+      @include min-width(mobile) {
+        font-size: ptr(40, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(50, desktop);
+      }
+    }
+  }
+  .bottom-content {
+    display: flex;
+    flex-direction: row;
+    @include min-width(mobile) {
+      justify-content: end;
+    }
+    @include min-width(tablet) {
+      justify-content: space-between;
+    }
+    .left,
+    .right {
+      display: flex;
+      text-decoration: none;
+      color: #d4d4d4;
+      align-items: center;
+      @include min-width(mobile) {
+        gap: ptr(20, mobile);
+      }
+      @include min-width(tablet) {
+        gap: ptr(20, desktop);
+      }
+      p {
+        @include min-width(mobile) {
+          font-size: ptr(15, mobile);
+        }
+        @include min-width(tablet) {
+          font-size: ptr(20, desktop);
+        }
+      }
+    }
+    .left {
+      @include min-width(mobile) {
+        display: none;
+      }
+      @include min-width(tablet) {
+        display: flex;
+      }
+    }
+  }
+
+  .right {
+    svg {
+      rotate: 180deg;
+    }
+  }
+  svg {
+    width: 20px;
+    height: auto;
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include min-width(mobile) {
+      margin: auto;
+      width: 100%;
+      gap: ptr(10, mobile);
+    }
+    @include min-width(tablet) {
+      margin: 0;
+      width: auto;
+      gap: ptr(20, desktop);
+    }
+    .next {
+      font-weight: 100;
+      text-transform: uppercase;
+      @include min-width(mobile) {
+        font-size: ptr(20, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(30, tablet);
+      }
+      @include min-width(desktop) {
+        font-size: ptr(20, desktop);
+      }
+    }
+    p {
+      font-weight: 100;
+      @include min-width(mobile) {
+        font-size: ptr(15, mobile);
+        padding: ptr(10, mobile) ptr(30, mobile);
+      }
+      @include min-width(tablet) {
+        font-size: ptr(20, desktop);
+        padding: 0.5rem 1rem;
+      }
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+    }
+  }
+}

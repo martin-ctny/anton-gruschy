@@ -1,0 +1,43 @@
+@use "sass:math";
+
+$mockups-widths: (
+  mobile: 393,
+  tablet: 820,
+  desktop: 1920,
+);
+
+$breakpoints: (
+  mobile: 0,
+  tablet: 481,
+  desktop: 1024,
+);
+$base-font-size: 1;
+
+@function strip-unit($value) {
+  /* This function takes a single parameter, $value, 
+  and is used to strip the unit (e.g., "px" or "rem") from a numeric value. 
+  It does this by dividing the value by itself plus zero (0 + 1), effectively removing the unit. */
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function ptr($px, $screen) {
+  /* This function combines the concepts of strip-unit() and px-to-vw(). 
+    It first strips the unit from the provided pixel value using strip-unit(), 
+    and then calculates the value in vw units based on the screen size. 
+    It uses the calc() function to perform this calculation and returns the result as a string with "vw" units. */
+  $px-value: strip-unit($px);
+  $viewport-size: strip-unit(map-get($mockups-widths, $screen));
+  @return calc(
+    #{math.div($px-value, $viewport-size)} * #{$base-font-size} * 100vw
+  );
+}
+
+@mixin min-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint) * 1px}) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$breakpoint}.";
+  }
+}

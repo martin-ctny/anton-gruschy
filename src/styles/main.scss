@@ -1,0 +1,65 @@
+@use "sass:math";
+
+@import "./functions/functions";
+
+@import "./font/font";
+
+@import "./sections/home";
+@import "./sections/aboutme";
+@import "./sections/projects";
+@import "./sections/contact";
+
+@import "./sections/projets/1";
+
+* {
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.section {
+  display: flex;
+  @include min-width(mobile) {
+    height: auto;
+  }
+  @include min-width(tablet) {
+    height: 100vh;
+  }
+  width: auto;
+  position: relative;
+  z-index: 2 !important;
+}
+
+#custom-cursor {
+  transition: transform 300ms ease;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 100001;
+  mix-blend-mode: difference;
+}
+
+.loading {
+  z-index: 100001;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 5%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
